@@ -1,1 +1,0 @@
-This is the Django project. It serves as the foundation for learning Django.
