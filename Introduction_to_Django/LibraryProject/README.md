@@ -1,0 +1,1 @@
+This is my first Django project. It serves as the foundation for learning Django.
