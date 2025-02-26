@@ -1,6 +1,5 @@
 from django.shortcuts import render
-
-# Create your views here.
+from django.views.generic.detail import DetailView
 from django.http import HttpResponse
 from .models import Book
 
