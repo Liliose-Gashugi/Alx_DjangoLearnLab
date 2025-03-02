@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-qc0oo8@^=+@e#x@ql@71e7-oeeoz0liw)qt64t@&+1k4yj98^@'
+SECRET_KEY = 'django-insecure-t^1o@2e!37#rdkkw9c(&mda+t1ttqs&m_chr_gb@0ufz8^n=cm'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'LibraryProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'relationship_app' / 'list_books.html' / 'library_detail.html'],
+        'DIRS': [BASE_DIR / '../relationship_app/templates'],  # Optional if templates aren't in app dirs,
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -116,11 +116,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / "static"]
+STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# LibraryProject/settings.py
 
+LOGIN_REDIRECT_URL = 'list_books'  # Redirect after login
+LOGOUT_REDIRECT_URL = 'login'      # Redirect after logout
