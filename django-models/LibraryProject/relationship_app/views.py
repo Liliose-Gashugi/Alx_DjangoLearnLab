@@ -27,7 +27,7 @@ def user_login(request):
         form = AuthenticationForm(data=request.POST)
         if form.is_valid():
             login(request, form.get_user())
-            return redirect('home')  # Change 'home' to your actual home page
+            return redirect('login')  # Change 'home' to your actual home page
     else:
         form = AuthenticationForm()
     return render(request, 'relationship_app/login.html', {'form': form})
