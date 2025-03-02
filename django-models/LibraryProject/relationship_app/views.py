@@ -46,3 +46,31 @@ def register(request):
     else:
         form = UserCreationForm()
     return render(request, 'relationship_app/register.html', {'form': form})
+
+
+from django.http import HttpResponse
+from django.contrib.auth.decorators import user_passes_test
+
+# Test functions for each role
+def admin_required(user):
+    return user.is_authenticated and hasattr(user, 'userprofile') and user.userprofile.role == 'Admin'
+
+def librarian_required(user):
+    return user.is_authenticated and hasattr(user, 'userprofile') and user.userprofile.role == 'Librarian'
+
+def member_required(user):
+    return user.is_authenticated and hasattr(user, 'userprofile') and user.userprofile.role == 'Member'
+
+# Role-based views
+
+@user_passes_test(admin_required)
+def admin_view(request):
+    return HttpResponse("Hello, Admin! This view is restricted to Admin users.")
+
+@user_passes_test(librarian_required)
+def librarian_view(request):
+    return HttpResponse("Hello, Librarian! This view is restricted to Librarian users.")
+
+@user_passes_test(member_required)
+def member_view(request):
+    return HttpResponse("Hello, Member! This view is restricted to Member users.")
